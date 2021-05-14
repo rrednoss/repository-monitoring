@@ -4,8 +4,6 @@ import os
 import subprocess
 import sys
 
-from monitoring import handle_args
-
 
 def main():
     if not os.path.exists(helper.monitoring_file()):
@@ -21,10 +19,7 @@ def main():
 
 def get_branch(repo):
     return subprocess.run(
-        ["git", "branch", "--show-current"],
-        cwd=repo,
-        capture_output=True,
-        text=True
+        ["git", "branch", "--show-current"], cwd=repo, capture_output=True, text=True
     ).stdout.strip("\n")
 
 
@@ -44,5 +39,5 @@ def append_record(recording):
         f.write(recording)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())

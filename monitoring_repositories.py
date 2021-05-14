@@ -15,7 +15,9 @@ def reset():
 
 def setup():
     cron = CronTab(user=True)
-    job = cron.new(command=f"python3 {helper.cronjob_file()}", comment="repository-monitoring")
+    job = cron.new(
+        command=f"python3 {helper.cronjob_file()}", comment="repository-monitoring"
+    )
     job.minute.on(30)
     cron.write()
     print("Cronjob successfully installed.")

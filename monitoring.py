@@ -7,16 +7,39 @@ import sys
 def main():
     parser = argparse.ArgumentParser(description="Monitors Git branches and commits.")
     group = parser.add_mutually_exclusive_group()
-    group.add_argument("--list", action="store_true", help="lists the currently monitored repositories")
-    group.add_argument("--reset", action="store_true", help="resets the monitor entries created up to this moment")
-    group.add_argument("--setup", action="store_true", help="creates a cronjob to monitor the checked out branches")
-    group.add_argument("--show", action="store_true", help="shows your previously checked out branches and commits")
-    group.add_argument("--start", action="store_true",
-                       help=f"starts monitoring for this repository ({get_repo_name()})")
-    group.add_argument("--stop", action="store_true",
-                       help=f"stop monitoring for this repository ({get_repo_name()})")
-    group.add_argument("--teardown", action="store_true",
-                       help="removes the cronjob that monitored the checked out branches")
+    group.add_argument(
+        "--list", action="store_true", help="lists the currently monitored repositories"
+    )
+    group.add_argument(
+        "--reset",
+        action="store_true",
+        help="resets the monitor entries created up to this moment",
+    )
+    group.add_argument(
+        "--setup",
+        action="store_true",
+        help="creates a cronjob to monitor the checked out branches",
+    )
+    group.add_argument(
+        "--show",
+        action="store_true",
+        help="shows your previously checked out branches and commits",
+    )
+    group.add_argument(
+        "--start",
+        action="store_true",
+        help=f"starts monitoring for this repository ({get_repo_name()})",
+    )
+    group.add_argument(
+        "--stop",
+        action="store_true",
+        help=f"stop monitoring for this repository ({get_repo_name()})",
+    )
+    group.add_argument(
+        "--teardown",
+        action="store_true",
+        help="removes the cronjob that monitored the checked out branches",
+    )
 
     handle_args(parser.parse_args())
 
@@ -51,5 +74,5 @@ def handle_args(args):
         monitoring_repositories.teardown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())
