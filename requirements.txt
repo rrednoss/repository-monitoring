@@ -1,0 +1,4 @@
+black==21.6b0
+PyYaml==5.4.1
+requests==2.25.1
+python-crontab~=2.5.1
