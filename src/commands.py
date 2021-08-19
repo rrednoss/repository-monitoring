@@ -43,7 +43,7 @@ def setup():
     """
     Installs a cronjob that periodically monitors the configured repositories.
 
-    The cronjob executes src.cronjob.cronjob as Python script.
+    The cronjob executes src.cronjob as Python script.
     """
     cron = CronTab(user=True)
     job = cron.new(
