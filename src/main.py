@@ -8,7 +8,9 @@ def create_cli():
     parser = argparse.ArgumentParser(description="Monitors Git branches and commits.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
-        "--recordings", action="store_true", help="prints the recordings up to this moment"
+        "--recordings",
+        action="store_true",
+        help="prints the recordings up to this moment",
     )
     group.add_argument(
         "--reset",

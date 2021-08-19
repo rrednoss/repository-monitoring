@@ -1,8 +1,7 @@
-import datetime
-
 from config import Configuration
 from records import Record
 
+import datetime
 import os
 import subprocess
 import sys
