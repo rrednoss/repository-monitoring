@@ -10,6 +10,11 @@ import re
 
 
 def recordings():
+    """
+    Loops through the recordings and prints them to STDOUT.
+
+    Additionally the user made commits are printed out as well.
+    """
     records = Record("records").read()
     for project_key, project_entries in records.items():
         print(project_key)
@@ -91,6 +96,3 @@ def teardown():
             cron.remove(job)
             cron.write()
             print("Cronjob successfully removed.")
-
-
-recordings()

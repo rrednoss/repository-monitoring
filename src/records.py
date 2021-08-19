@@ -17,6 +17,13 @@ class Record(Persistence):
         return False if records.get(repository) is None else True
 
     def add(self, repository, branch, timestamp):
+        """
+        Adds a new entry, which is a monitored repository and its branch.
+
+        :param repository: the repository absolute path
+        :param branch: the repositories branch
+        :param timestamp: the timestamp at which the branch was checked out
+        """
         records = self.read()
         if not self._has_repository(records, repository):
             records[repository] = {}
@@ -27,6 +34,11 @@ class Record(Persistence):
             yaml.safe_dump(records, f)
 
     def read(self) -> dict:
+        """
+        Reads the records that were previously added by func: `add`
+
+        :return: a list of the previously persisted records
+        """
         if self.exists():
             with open(self.path(), "r") as f:
                 records = yaml.safe_load(f)

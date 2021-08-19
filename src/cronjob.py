@@ -13,6 +13,9 @@ def path():
 
 
 def monitor():
+    """
+    The core method of the cronjob. Monitors each configured repository for their current branch.
+    """
     repositories = Configuration("repositories").read()
     if len(repositories) == 0:
         print("There are no repositories configured to be monitored.")
@@ -26,6 +29,11 @@ def monitor():
 
 
 def retrieve_branch(repository):
+    """
+    Uses the Git command to retrieve the repositories branch.
+
+    :param repository: the repository absolute path
+    """
     return subprocess.run(
         ["git", "branch", "--show-current"],
         cwd=repository,

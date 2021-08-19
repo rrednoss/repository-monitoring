@@ -8,6 +8,9 @@ def create_cli():
     parser = argparse.ArgumentParser(description="Monitors Git branches and commits.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
+        "--recordings", action="store_true", help="prints the recordings up to this moment"
+    )
+    group.add_argument(
         "--reset",
         action="store_true",
         help="resets the recordings up to this moment",
@@ -31,12 +34,13 @@ def create_cli():
         action="store_true",
         help="removes the cronjob that monitored the repositories",
     )
-    # add default option for "show recordings"
     handle_args(parser.parse_args())
 
 
 def handle_args(args):
-    if args.reset:
+    if args.recordings:
+        commands.recordings()
+    elif args.reset:
         commands.reset()
     elif args.setup:
         commands.setup()
@@ -49,7 +53,7 @@ def handle_args(args):
     elif args.teardown:
         commands.teardown()
     else:
-        commands.recordings()  # TODO
+        print("You must select an argument.")
 
 
 if __name__ == "__main__":
