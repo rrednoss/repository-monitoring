@@ -16,12 +16,13 @@ pip3 install -r requirements.txt
 _Optional:_ To access the script from every location it is recommended to use an alias.
 ```bash
 $ python3 src/main.py --help
-usage: main.py [-h] [--reset | --setup | --show | --start PATH | --stop PATH | --teardown]
+usage: main.py [-h] [--recordings | --reset | --setup | --show | --start PATH | --stop PATH | --teardown]
 
 Monitors Git branches and commits.
 
 optional arguments:
   -h, --help    show this help message and exit
+  --recordings  prints the recordings up to this moment
   --reset       resets the recordings up to this moment
   --setup       creates a cronjob to monitor the repositories
   --show        shows the currently configured repositories
