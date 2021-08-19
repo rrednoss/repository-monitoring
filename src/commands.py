@@ -1,11 +1,10 @@
-import datetime
-
 from config import Configuration
 from crontab import CronTab
 from records import Record
 
 import commits
 import cronjob
+import datetime
 import re
 
 
