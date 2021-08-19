@@ -72,6 +72,7 @@ def start(path):
     """
     config = Configuration("repositories")
     config.add(path)
+    print(f"Started monitoring of {path}")
 
 
 def stop(path):
@@ -82,6 +83,7 @@ def stop(path):
     """
     config = Configuration("repositories")
     config.remove(path)
+    print(f"Stoped monitoring of {path}")
 
 
 def teardown():
