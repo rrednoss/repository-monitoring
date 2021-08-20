@@ -2,7 +2,7 @@ import os
 
 
 class Persistence:
-    def __init__(self, file_path=os.environ["HOME"], file_name=".monitoring"):
+    def __init__(self, file_path=os.environ["HOME"], file_name=".persistence"):
         self.file_path = file_path
         self.file_name = file_name
         self._setup()
