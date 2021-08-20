@@ -13,15 +13,15 @@ class TestPersistence(unittest.TestCase):
     def tearDown(self) -> None:
         os.remove(self.persistence.path())
 
-    def test_exists(self):
+    def test_exists(self) -> None:
         self.assertTrue(self.persistence.exists())
 
-    def test_path(self):
+    def test_path(self) -> None:
         expected = f"{self.path}/{self.name}.yaml"
         actual = self.persistence.path()
         self.assertEqual(expected, actual)
 
-    def test_reset(self):
+    def test_reset(self) -> None:
         with open(self.persistence.path(), "w") as f:
             f.write("My best joke!")
         self.persistence.reset()

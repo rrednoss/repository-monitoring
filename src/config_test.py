@@ -13,19 +13,19 @@ class TestConfig(unittest.TestCase):
     def tearDown(self) -> None:
         os.remove(self.config.path())
 
-    def test_add(self):
+    def test_add(self) -> None:
         expected = "/home/rednoss/Documents/Workspace/repository-monitoring"
         self.config.add(expected)
 
         with open(self.config.path(), "r") as f:
             self.assertEqual(f"- {expected}\n", f.read())
 
-    def test_read(self):
+    def test_read(self) -> None:
         path = "/home/rednoss/Documents/Workspace/repository-monitoring"
         self.config.add(path)
         self.assertEqual(str(self.config.read()), f"['{path}']")
 
-    def test_remove(self):
+    def test_remove(self) -> None:
         path = "/home/rednoss/Documents/Workspace/repository-monitoring"
         self.config.add(path)
         self.config.remove(path)
