@@ -1,9 +1,13 @@
-from persistence import Persistence
-
+import os
 import yaml
+
+from persistence import Persistence
 
 
 class Record(Persistence):
+    def __init__(self, file_path=os.environ["HOME"], file_name=".repositories"):
+        super.__init__(self, file_path, file_name)
+
     @staticmethod
     def _create_entry(branch, timestamp) -> dict:
         return {f"{timestamp}": f"{branch}"}

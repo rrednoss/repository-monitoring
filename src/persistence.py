@@ -2,13 +2,13 @@ import os
 
 
 class Persistence:
-    def __init__(self, file_name):
+    def __init__(self, file_path=os.environ["HOME"], file_name=".monitoring"):
+        self.file_path = file_path
         self.file_name = file_name
         self._setup()
 
-    @staticmethod
-    def _folder() -> str:
-        return os.environ["HOME"] + "/.monitoring"  # Make this folder configurable?
+    def _folder(self) -> str:
+        return self.file_path + "/" + self.file_name
 
     def _setup(self):
         os.makedirs(self._folder(), exist_ok=True)
