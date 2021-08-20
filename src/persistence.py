@@ -17,7 +17,7 @@ class Persistence:
         return os.path.exists(self.path())
 
     def path(self) -> str:
-        return self.file_path + f"/{self.file_name}.yaml"
+        return f"{self.file_path}/{self.file_name}.yaml"
 
     def reset(self):
         with open(self.path(), "w") as f:
