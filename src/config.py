@@ -6,7 +6,7 @@ from persistence import Persistence
 
 class Configuration(Persistence):
     def __init__(self, file_path=os.environ["HOME"], file_name=".repositories"):
-        super.__init__(self, file_path, file_name)
+        super().__init__(file_path, file_name)
 
     def add(self, path):
         """

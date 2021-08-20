@@ -1,5 +1,5 @@
-import unittest
 import os
+import unittest
 
 from persistence import Persistence
 

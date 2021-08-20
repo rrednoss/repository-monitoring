@@ -6,7 +6,7 @@ from persistence import Persistence
 
 class Record(Persistence):
     def __init__(self, file_path=os.environ["HOME"], file_name=".monitoring"):
-        super.__init__(self, file_path, file_name)
+        super().__init__(file_path, file_name)
 
     @staticmethod
     def _create_entry(branch, timestamp) -> dict:
