@@ -20,5 +20,6 @@ class Persistence:
         return f"{self.file_path}/{self.file_name}.yaml"
 
     def reset(self):
-        with open(self.path(), "w") as f:
-            f.write("---")
+        if self.exists():
+            with open(self.path(), "w") as f:
+                f.write("---")
