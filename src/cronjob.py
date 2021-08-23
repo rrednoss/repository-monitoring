@@ -15,12 +15,12 @@ def monitor():
     """
     The core method of the cronjob. Monitors each configured repository for their current branch.
     """
-    repositories = Configuration("repositories").read()
+    repositories = Configuration(file_name="repositories").read()
     if len(repositories) == 0:
         print("There are no repositories configured to be monitored.")
         return
 
-    records = Record("records")
+    records = Record(file_name="records")
     for repository in repositories:
         branch = retrieve_branch(repository)
         timestamp = datetime.datetime.now().replace(microsecond=0).isoformat()
