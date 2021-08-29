@@ -1,6 +1,6 @@
 from config import Configuration
 from crontab import CronTab
-from records import Record
+from record import Record
 
 import commits
 import cronjob
@@ -14,7 +14,7 @@ def recordings():
 
     Additionally the user made commits are printed out as well.
     """
-    records = Record("records").read()
+    records = Record(file_name="records").read()
     for project_key, project_entries in records.items():
         print(project_key)
         for entry_key, entry_values in project_entries.items():
@@ -35,7 +35,7 @@ def reset():
     """
     Resets all repository recordings up until now.
     """
-    Record("records").reset()
+    Record(file_name="records").reset()
     print("Records successfully reset.")
 
 
@@ -59,7 +59,7 @@ def show():
     """
     Prints currently configured repositories to STDOUT.
     """
-    config = Configuration("repositories")
+    config = Configuration(file_name="repositories")
     print(config.read())
 
 
@@ -69,7 +69,7 @@ def start(path):
 
     :param path: the repository to start monitoring on
     """
-    config = Configuration("repositories")
+    config = Configuration(file_name="repositories")
     config.add(path)
     print(f"Started monitoring of {path}")
 
@@ -80,9 +80,9 @@ def stop(path):
 
     :param path: the repository to stop monitoring on
     """
-    config = Configuration("repositories")
+    config = Configuration(file_name="repositories")
     config.remove(path)
-    print(f"Stoped monitoring of {path}")
+    print(f"Stopped monitoring of {path}")
 
 
 def teardown():
