@@ -50,7 +50,7 @@ def setup():
         command=f"python3 {cronjob.path()}",
         comment="repository-monitoring",
     )
-    job.minute.on(30)
+    job.minute.every(30)
     cron.write()
     print("Cronjob successfully installed.")
 
