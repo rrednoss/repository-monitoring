@@ -21,9 +21,7 @@ class TestCronjob(unittest.TestCase):
 
     @mock.patch("commits.subprocess.run")
     def test_retrieve_email(self, mock_run):
-        type(mock_run.return_value).stdout = mock.PropertyMock(
-            return_value="main\n"
-        )
+        type(mock_run.return_value).stdout = mock.PropertyMock(return_value="main\n")
         self.assertEqual("main", cronjob.retrieve_branch("/home/username/repo"))
 
 
