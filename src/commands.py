@@ -82,7 +82,7 @@ def stop(path):
     """
     config = Configuration(file_name="repositories")
     config.remove(path)
-    print(f"Stoped monitoring of {path}")
+    print(f"Stopped monitoring of {path}")
 
 
 def teardown():
