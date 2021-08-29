@@ -1,5 +1,5 @@
 from config import Configuration
-from records import Record
+from record import Record
 
 import datetime
 import os
@@ -20,11 +20,11 @@ def monitor():
         print("There are no repositories configured to be monitored.")
         return
 
-    records = Record(file_name="records")
+    record = Record(file_name="records")
     for repository in repositories:
         branch = retrieve_branch(repository)
         timestamp = datetime.datetime.now().replace(microsecond=0).isoformat()
-        records.add(repository, branch, timestamp)
+        record.add(repository, branch, timestamp)
 
 
 def retrieve_branch(repository):

@@ -1,6 +1,6 @@
 from config import Configuration
 from crontab import CronTab
-from records import Record
+from record import Record
 
 import commits
 import cronjob

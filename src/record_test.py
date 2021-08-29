@@ -2,7 +2,7 @@ import datetime
 import os
 import unittest
 
-from records import Record
+from record import Record
 
 
 class TestRecord(unittest.TestCase):
